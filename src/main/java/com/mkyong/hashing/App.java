@@ -24,7 +24,26 @@ public class App {
 
         }
 
-       sort();
+        System.out.println("Which Sort Method You Need ");
+        System.out.println("1.0 Bubble Sort \n2.0 Selection Sort");
+        System.out.println("Press Option 1 OR 2 :");
+        int option=sc.nextInt();
+
+        if(option==1){
+            System.out.println("implementing Bubble sort .........");
+            sort();
+        }
+        else if(option==2){
+            System.out.println("implementing selection sort .........");
+            selection_sort();
+        }
+        else{
+            System.out.println("Sort option not given Deafault method selected");
+            System.out.println("implementing Bubble sort .........");
+            sort();
+        }
+
+
     }
 
     public static void sort() {
@@ -39,6 +58,33 @@ public class App {
                 }
 
             }
+        }
+
+        System.out.println("******-------sorted order-------*******");
+        for (int m : sortarr) {
+            System.out.print(m + " ");
+        }
+    }
+
+    public static void selection_sort() {
+
+        int min = 0;
+        for (int i = 0; i < sortarr.size(); i++) {
+            min = i;
+            for (int j = i + 1; j < sortarr.size(); j++) {
+                if (sortarr.get(min) > sortarr.get(j)) {
+                    min = j;
+                }
+            }
+
+            if (min != i) {
+                int temp = sortarr.get(i);
+                sortarr.set(i, sortarr.get(min));
+                sortarr.set(min, temp);
+
+            }
+
+
         }
 
         System.out.println("******-------sorted order-------*******");
